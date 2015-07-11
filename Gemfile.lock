@@ -57,9 +57,11 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    daemons (1.2.3)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     escape_utils (1.1.0)
+    eventmachine (1.0.7)
     execjs (2.5.2)
     foundation-rails (5.5.2.1)
       railties (>= 3.1.0)
@@ -171,6 +173,10 @@ GEM
     test-unit-rr (1.0.3)
       rr (>= 1.1.1)
       test-unit (>= 2.5.2)
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -203,6 +209,7 @@ DEPENDENCIES
   spring
   sqlite3
   test-unit-rails
+  thin
   uglifier
   web-console
 

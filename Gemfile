@@ -9,6 +9,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'sqlite3'
 gem 'uglifier'
+gem 'thin'
 
 group :development, :test do
   gem 'pry-byebug'
