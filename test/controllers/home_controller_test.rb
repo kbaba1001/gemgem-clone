@@ -2,12 +2,9 @@ require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
   test '#index' do
-    visit root_path
+    get root_path
 
-    within('.title') do
-      assert { /Welcome/ === text }
-    end
-
-    assert { page.has_selector?('a', 'new thing') == true }
+    assert_select '.title', {text: /Welcome/}
+    assert_select 'a', {text: 'new thing'}
   end
 end
