@@ -9,4 +9,19 @@ class ThingsControllerTest < ActionDispatch::IntegrationTest
     # assert_select "form #thing_name"
     # assert_select "form #thing_name.readonly", false
   end
+
+  sub_test_case '#create' do
+    test 'success' do
+      post things_path, {thing: {name: 'Bad Religion'}}
+
+      assert_redirected_to thing_path(Thing.last)
+    end
+
+    test 'error' do
+      post things_path, {thing: {name: ''}}
+
+      assert { path == '/things' }
+      assert_select '.error'
+    end
+  end
 end
