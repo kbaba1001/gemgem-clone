@@ -1,6 +1,6 @@
 %h3 What do you want to talk about?
 
-= simple_form_for @form, url: things_path, html: {class: 'thing__new-form'} do |f|
+= simple_form_for @form, html: {class: 'thing__new-form'} do |f|
   = f.input :name, placeholder: "Name", label: false#, readonly: @form.readonly?(:name)
   = f.input :description, placeholder: "Description", label: false
 
