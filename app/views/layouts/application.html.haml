@@ -9,4 +9,5 @@
     = javascript_include_tag 'vendor/modernizr'
     = csrf_meta_tags
   %body
-    = yield
+    %main.main{role: 'main'}
+      = yield
