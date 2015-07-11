@@ -8,6 +8,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
       assert { /Welcome/ === text }
     end
 
-    assert { page.has_link?('new thing') == true }
+    assert { page.has_selector?('a', 'new thing') == true }
   end
 end
