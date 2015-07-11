@@ -8,8 +8,9 @@ gem 'rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'sqlite3'
-gem 'uglifier'
 gem 'thin'
+gem 'trailblazer'
+gem 'uglifier'
 
 group :development, :test do
   gem 'pry-byebug'
