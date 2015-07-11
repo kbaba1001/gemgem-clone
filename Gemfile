@@ -1,18 +1,20 @@
 source 'https://rubygems.org'
 
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
+gem 'foundation-rails'
+gem 'hamlit-rails'
 gem 'jquery-rails'
 gem 'rails'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'simple_form'
 gem 'sqlite3'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 group :development, :test do
   gem 'pry-byebug'
   gem 'quiet_assets'
   gem 'spring'
   gem 'test-unit-rails'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 end
 
