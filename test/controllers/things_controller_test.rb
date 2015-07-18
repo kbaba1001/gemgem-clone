@@ -4,7 +4,8 @@ class ThingsControllerTest < ActionDispatch::IntegrationTest
   test '#new' do
     get new_thing_path
 
-    assert_select '.thing__new-form'
+    assert_select '.thing__form'
+    assert_select '.thing__form--name.readonly', false
   end
 
   sub_test_case '#create' do
@@ -28,5 +29,16 @@ class ThingsControllerTest < ActionDispatch::IntegrationTest
     get thing_path(thing.id)
 
     assert_select '.thing__display-name', {text: /Rails/}
+  end
+
+  test '#edit' do
+    thing = Thing::Create[thing: {name: "Rails"}].model
+
+    get edit_thing_path(thing.id)
+
+    assert_select '.thing__form--name' do
+      assert_select '.readonly'
+      assert_select '[value=?]', 'Rails'
+    end
   end
 end

@@ -1,2 +1,5 @@
 .header
   %h1.thing__display-name= @thing.name
+  = link_to 'Edit', edit_thing_path(@thing)
+
+= @thing.description

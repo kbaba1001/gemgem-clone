@@ -16,7 +16,9 @@ class ThingsController < ApplicationController
   end
 
   def edit
+    form Thing::Update
 
+    render action: :new
   end
 
   def update
