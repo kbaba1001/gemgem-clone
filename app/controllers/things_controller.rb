@@ -12,6 +12,7 @@ class ThingsController < ApplicationController
   end
 
   def show
+    present Thing::Update
   end
 
   def edit

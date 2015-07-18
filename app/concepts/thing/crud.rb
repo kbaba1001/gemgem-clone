@@ -17,4 +17,8 @@ class Thing < ActiveRecord::Base
       end
     end
   end
+
+  class Update < Create
+    action :update
+  end
 end
