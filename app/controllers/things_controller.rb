@@ -8,7 +8,7 @@ class ThingsController < ApplicationController
       redirect_to op.model and return
     end
 
-    render action: :new
+    render :new
   end
 
   def show
@@ -18,7 +18,7 @@ class ThingsController < ApplicationController
   def edit
     form Thing::Update
 
-    render action: :new
+    render :new
   end
 
   def update
