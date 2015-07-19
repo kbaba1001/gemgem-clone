@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class ThingsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @thing = Thing::Create[thing: {name: "Rails"}].model
+  end
+
   test '#new' do
     get new_thing_path
 
@@ -24,17 +28,13 @@ class ThingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test '#show' do
-    thing = Thing::Create[thing: {name: "Rails"}].model
-
-    get thing_path(thing.id)
+    get thing_path(@thing.id)
 
     assert_select '.thing__display-name', {text: /Rails/}
   end
 
   test '#edit' do
-    thing = Thing::Create[thing: {name: "Rails"}].model
-
-    get edit_thing_path(thing.id)
+    get edit_thing_path(@thing.id)
 
     assert_select '.thing__form--name' do
       assert_select '.readonly'
