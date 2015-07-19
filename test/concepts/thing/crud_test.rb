@@ -27,4 +27,29 @@ class ThingCrudTest < Test::Unit::TestCase
       assert { op.errors.get(:description) == ['is too short (minimum is 4 characters)'] }
     end
   end
+
+  sub_test_case 'Update' do
+    setup do
+      @thing = Thing::Create[
+        thing: {
+          name: 'Rails',
+          description: 'Kickass web dev'
+        }
+      ].model
+    end
+
+    test 'persists valid, ignores name' do
+      Thing::Update.run(
+        id: @thing.id,
+        thing: {
+          name: 'Lotus',
+          description: 'MVC, well...'
+        }
+      )
+
+      @thing.reload
+      assert { @thing.name == 'Rails' }
+      assert { @thing.description == 'MVC, well...' }
+    end
+  end
 end

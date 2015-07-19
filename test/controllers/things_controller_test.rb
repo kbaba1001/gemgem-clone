@@ -44,9 +44,12 @@ class ThingsControllerTest < ActionDispatch::IntegrationTest
 
   sub_test_case '#update' do
     test 'success' do
-      # name は writeable: false だがこれは View の form と paramater で更新できなくしているだけで、
-      # 直接リクエストを投げられると更新できる。
-      # name の値を更新しようとしたら Validation Error にする方が丁寧だと思う。
+      # name は writeable: false だがこれは View の form と paramater で更新できなくしているだけなので、
+      # name パラメータをつけてリクエストを投げると単純に無視する。
+      # gemgem-trbrb がこのようなテストになっているのでそのままにしているが、テストの意図を考えると、
+      # `put thing_path(@thing), id: @thing.id, thing: {description: 'hogefuga'}` のようにした方が良いと思う。
+      # また、 redirect した後のページで更新された値を確認するテストを追加しても良いが、
+      # これは controller test ではなく feature test に相当するためここではテストできない...
       put thing_path(@thing), id: @thing.id, thing: {name: 'Trb'}
 
       assert_redirected_to thing_path(@thing)
