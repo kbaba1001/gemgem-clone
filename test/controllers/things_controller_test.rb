@@ -41,4 +41,22 @@ class ThingsControllerTest < ActionDispatch::IntegrationTest
       assert_select '[value=?]', 'Rails'
     end
   end
+
+  sub_test_case '#update' do
+    test 'success' do
+      # name は writeable: false だがこれは View の form と paramater で更新できなくしているだけで、
+      # 直接リクエストを投げられると更新できる。
+      # name の値を更新しようとしたら Validation Error にする方が丁寧だと思う。
+      put thing_path(@thing), id: @thing.id, thing: {name: 'Trb'}
+
+      assert_redirected_to thing_path(@thing)
+    end
+
+    test 'error' do
+      # description is too short (minimum is 4 characters)
+      put thing_path(@thing), id: @thing.id, thing: {description: 'bla'}
+
+      assert_select '.error'
+    end
+  end
 end

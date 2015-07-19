@@ -22,7 +22,10 @@ class ThingsController < ApplicationController
   end
 
   def update
+    run Thing::Update do |op|
+      redirect_to op.model and return
+    end
 
+    render :new
   end
-
 end
