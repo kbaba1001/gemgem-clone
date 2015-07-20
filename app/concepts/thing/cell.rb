@@ -1,7 +1,9 @@
 class Thing::Cell < Cell::Concept
+  property :name
+  property :created_at
 
   def show
-
+    render
   end
 
   class Grid < Cell::Concept
