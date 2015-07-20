@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'cells'
+gem 'cells-haml'
 gem 'coffee-rails'
 gem 'foundation-rails'
 gem 'hamlit-rails'
