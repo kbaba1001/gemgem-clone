@@ -5,7 +5,7 @@ class Thing::Cell < Cell::Concept
   include Cell::GridCell
   self.classes = %w(box large-3 columns)
 
-  # include Cell::CreatedAt
+  include Cell::CreatedAt
 
   def show
     render
