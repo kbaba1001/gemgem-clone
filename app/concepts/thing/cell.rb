@@ -11,6 +11,12 @@ class Thing::Cell < Cell::Concept
     render
   end
 
+  private
+
+  def name_link
+    link_to name, thing_path(model)
+  end
+
   class Grid < Cell::Concept
     def show
       things = Thing.latest
