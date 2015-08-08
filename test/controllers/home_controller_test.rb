@@ -13,10 +13,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_select '.title', {text: /Welcome/}
     assert_select 'a', {text: 'new thing'}
 
-    assert_select '.thing-panel__header', 'Trailblazer'
-    assert_select '.thing-panel__header', 'Descendents'
-
-    # assert_select ".columns .header a", "Descendents" # TODO: test not-end.
-    # assert_select ".columns.end .header a", "Trailblazer"
+    assert_select '.columns .thing-panel__header', 'Descendents'
+    assert_select '.columns.end .thing-panel__header', 'Trailblazer'
   end
 end

@@ -2,6 +2,11 @@ class Thing::Cell < Cell::Concept
   property :name
   property :created_at
 
+  include Cell::GridCell
+  self.classes = %w(box large-3 columns)
+
+  # include Cell::CreatedAt
+
   def show
     render
   end
