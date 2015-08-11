@@ -31,6 +31,10 @@ class ThingsControllerTest < ActionDispatch::IntegrationTest
     get thing_path(@thing.id)
 
     assert_select '.thing__display-name', {text: /Rails/}
+
+    assert_select 'input.button[value=?]', 'Create Comment'
+    assert_select '.comment_user_email'
+    assert_select '.comments .comment'
   end
 
   test '#edit' do

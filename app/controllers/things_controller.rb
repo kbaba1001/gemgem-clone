@@ -13,6 +13,7 @@ class ThingsController < ApplicationController
 
   def show
     present Thing::Update
+    form Comment::Create
   end
 
   def edit
