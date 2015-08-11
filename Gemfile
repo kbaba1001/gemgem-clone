@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "email_validator"
 gem 'cells'
 gem 'cells-haml'
 gem 'coffee-rails'
